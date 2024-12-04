@@ -3,9 +3,12 @@ import pathlib
 import regression_model
 
 
-PACKAGE_ROOT = pathlib.Path(regression_model.__file__).resolve().parent
-TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
-DATASET_DIR = PACKAGE_ROOT / "datasets"
+#PACKAGE_ROOT = pathlib.Path(regression_model.__file__).resolve().parent
+PACKAGE_ROOT = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model"
+#TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
+TRAINED_MODEL_DIR = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model/regression_model/trained_models"
+#DATASET_DIR = PACKAGE_ROOT / "datasets"
+DATASET_DIR = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model/regression_model/datasets"
 
 # data
 TESTING_DATA_FILE = "test.csv"
