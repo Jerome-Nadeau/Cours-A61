@@ -10,6 +10,7 @@ TRAINED_MODEL_DIR = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/pack
 #DATASET_DIR = PACKAGE_ROOT / "datasets"
 DATASET_DIR = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model/regression_model/datasets"
 
+
 # data
 TESTING_DATA_FILE = "test.csv"
 TRAINING_DATA_FILE = "train.csv"
