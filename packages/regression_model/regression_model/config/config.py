@@ -5,11 +5,19 @@ import regression_model
 import pandas as pd
 
 #PACKAGE_ROOT = pathlib.Path(regression_model.__file__).resolve().parent
-PACKAGE_ROOT = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model"
+#PACKAGE_ROOT = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model"
+import os
+
+current_file_path = os.path.abspath(regression_model.__file__)
+PACKAGE_ROOT = os.path.dirname(current_file_path)
+#print(parent_directory)
+
 #TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
-TRAINED_MODEL_DIR = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model/regression_model/trained_models"
+TRAINED_MODEL_DIR = '/'.join([ PACKAGE_ROOT , "trained_models"])
+#TRAINED_MODEL_DIR = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model/regression_model/trained_models"
 #DATASET_DIR = PACKAGE_ROOT / "datasets"
-DATASET_DIR = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model/regression_model/datasets"
+DATASET_DIR = '/'.join([ PACKAGE_ROOT , "datasets"])
+#DATASET_DIR = "C:/Users/jerom/OneDrive/Documents/420-A61-SF/Cours-A61/packages/regression_model/regression_model/datasets"
 
 
 # data
