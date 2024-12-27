@@ -1,4 +1,3 @@
-from pathlib import Path
 import pandas as pd
 import joblib
 from sklearn.pipeline import Pipeline
@@ -13,7 +12,7 @@ _logger = logging.getLogger(__name__)
 
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:
-    _data = pd.read_csv('/'.join([ f"{config.DATASET_DIR}" , f"{file_name}"]))
+    _data = pd.read_csv(f"{config.DATASET_DIR}/{file_name}")
     return _data
 
 
@@ -27,7 +26,7 @@ def save_pipeline(*, pipeline_to_persist) -> None:
 
     # Prepare versioned save file name
     save_file_name = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
-    save_path = '/'.join([ f"{config.TRAINED_MODEL_DIR}" , f"{save_file_name}"])
+    save_path = config.TRAINED_MODEL_DIR / save_file_name
 
     remove_old_pipelines(files_to_keep=save_file_name)
     joblib.dump(pipeline_to_persist, save_path)
@@ -36,7 +35,8 @@ def save_pipeline(*, pipeline_to_persist) -> None:
 
 def load_pipeline(*, file_name: str) -> Pipeline:
     """Load a persisted pipeline."""
-    file_path =  '/'.join([ f"{config.TRAINED_MODEL_DIR}" , f"{file_name}"])
+
+    file_path = config.TRAINED_MODEL_DIR / file_name
     trained_model = joblib.load(filename=file_path)
     return trained_model
 
@@ -48,7 +48,7 @@ def remove_old_pipelines(*, files_to_keep) -> None:
     mapping between the package version and the model
     version to be imported and used by other applications.
     """
-    trained_model_dir = Path(config.TRAINED_MODEL_DIR)
-    for model_file in trained_model_dir.iterdir():
+
+    for model_file in config.TRAINED_MODEL_DIR.iterdir():
         if model_file.name not in [files_to_keep, "__init__.py"]:
             model_file.unlink()
